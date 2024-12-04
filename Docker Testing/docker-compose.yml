@@ -5,6 +5,6 @@ services:
     build:
       context: .
     ports:
-      - "8000:9002"  #"inter:outer"
+      - "8000:8000"  #"outer:inter"
     volumes:
       - .:/app
