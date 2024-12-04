@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  my_app:
+    build:
+      context: .
+    ports:
+      - "8000:9002"  #"inter:outer"
+    volumes:
+      - .:/app
