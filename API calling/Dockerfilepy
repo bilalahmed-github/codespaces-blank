@@ -7,6 +7,9 @@ WORKDIR /app
 # Copy the current directory contents into the container at /app
 COPY . /app
 
+# Install psycopg2-binary for PostgreSQL connection
+RUN pip install psycopg2-binary
+
 # Install any needed dependencies specified in requirements.txt
 RUN pip install -r requirements.txt
 

@@ -1,0 +1,27 @@
+name: Deploy to Kubernetes
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build and push backend Docker image
+        run: |
+          docker build -t my-backend .
+          docker tag my-backend gcr.io/your-project/my-backend:latest
+          docker push gcr.io/your-project/my-backend:latest
+
+      - name: Build and push frontend Docker image
+        run: |
+          docker build -t my-frontend .
+          docker tag my-frontend gcr.io/your-project/my-frontend:latest
+          docker push gcr.io/your-project/my-frontend:latest
+
+      # Add more steps for deploying to Kubernetes

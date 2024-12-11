@@ -1,0 +1,18 @@
+<form id="dataForm">
+    <input type="text" name="inputData" id="inputData">
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+    document.getElementById('dataForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const inputData = document.getElementById('inputData').value;
+        await fetch('/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ data: inputData })
+        });
+    });
+</script>

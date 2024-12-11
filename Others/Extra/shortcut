@@ -1,0 +1,14 @@
+function sortByName(users) {
+    return users. sort((userA,userB) => {
+        if (userA.name < userB.name) return -1
+        if (userA.name > userB.name) return 1
+        return 0
+    })
+}
+const users = [
+    { name: "Kyle"},
+    { name: "Sally"},
+    { name: "John"},
+    { name: "Bob"}
+]
+const sortedUsers = sortByName(users)
